@@ -41,7 +41,8 @@ class ChatStatistics:
             self,
             output_dir: Union[str, Path],
             width: int = 800, height: int = 600,
-            max_font_size: int = 250
+            max_font_size: int = 250,
+            background_color: str = 'white',
         ):
 
         """generates a word cloud from the chat data
@@ -66,8 +67,8 @@ class ChatStatistics:
         wordcloud = WordCloud(
             width=1200, height=1200,
             font_path=str(DATA_DIR / './Bhoma.ttf'),
-            background_color='white',
-            max_font_size=150
+            background_color=background_color,
+            max_font_size=250
         ).generate(text_content)
 
         text_content = arabic_reshaper.reshape(text_content)
